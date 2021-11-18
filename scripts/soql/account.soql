@@ -5,3 +5,4 @@
 
 SELECT Id, Name, Industry, BillingState, Phone
   FROM Account
+  WHERE Industry = 'Energy'

@@ -1,14 +1,12 @@
 ({
-    // handleSelect: function (component, event, helper) {
-    //     var stepName = event.getParam("detail").value;
-    //     var toastEvent = $A.get("e.force:showToast");
-    //     toastEvent.setParams({
-    //         title: "Success!",
-    //         message: "Toast from " + stepName
-    //     });
-    //     toastEvent.fire();
-    // }
-    onChange: function (cmp, evt, helper) {
-        alert(cmp.find("select").get("v.value") + " pie is good.");
+    doInit: function (component, event, helper) {
+        helper.getPicklistValues(component, event);
+    },
+
+    handleOnChange: function (component, event, helper) {
+        // var industry = component.get("v.acc.Industry");
+        helper.getData(component, event);
+        // eslint-disable-next-line no-alert
+        // alert(industry);
     }
 });

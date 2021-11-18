@@ -9,6 +9,7 @@
                     cmp.set("v.mydata", response.getReturnValue());
                 } else if (state === "ERROR") {
                     var errors = response.getError();
+                    // eslint-disable-next-line no-console
                     console.error(errors);
                 }
             })

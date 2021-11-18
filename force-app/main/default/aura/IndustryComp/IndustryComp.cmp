@@ -1,10 +1,26 @@
-<aura:component>
-    <lightning:select aura:id="select" name="select" label="Industries" onchange="{! c.onChange }">
-        <option value="">choose one...</option>
-        <option value="apple">apple</option>
-        <option value="pumpkin">pumpkin</option>
-        <option value="cherry">cherry</option>
-        <option value="blueberry">blueberry</option>
-        <option value="pickle">pickle</option>
+<aura:component controller="AccountController" implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <aura:registerEvent name="cmpEvent" type="c:EventTest" />
+
+    <aura:attribute name="fieldMap" type="Map" />
+    <aura:attribute
+        name="acc"
+        type="Account"
+        default="{'sobjectType':'Account', 
+                                                        'Industry': ''}"
+    />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:select
+        aura:id="industryPicklist"
+        value="{!v.acc.Industry}"
+        onchange="{!c.fireEventTest}"
+        name="industryPicklist"
+        label="Industries"
+    >
+        <option value="">--None--</option>
+        <aura:iteration items="{!v.fieldMap}" var="i" indexVar="key">
+            <option text="{!i.value}" value="{!i.key}" selected="{!i.key==v.acc.Industry}" />
+        </aura:iteration>
     </lightning:select>
 </aura:component>
