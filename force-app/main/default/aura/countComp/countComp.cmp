@@ -1,0 +1,4 @@
+<aura:component>
+<aura:attribute name="selectedRowsCount" type="Integer" default="0" />
+<h1>Selected Accounts: {! v.selectedRowsCount }</h1>
+</aura:component>	

@@ -3,6 +3,7 @@
     <aura:attribute name="mycolumns" type="List" />
     <aura:handler name="init" value="{! this }" action="{! c.init }" />
     <div style="height: 300px">
-    <lightning:datatable data="{! v.mydata }" columns="{! v.mycolumns }" keyField="Id" hideCheckboxColumn="true" />
+        <!-- <h1>Selected Accounts: {! v.selectedRowsCount }</h1> -->
+        <lightning:datatable data="{! v.mydata }" columns="{! v.mycolumns }" keyField="Id" onrowselection="{! c.updateSelectedText }"/>
     </div>
 </aura:component>

@@ -1,0 +1,10 @@
+<aura:component>
+    <lightning:select aura:id="select" name="select" label="Industries" onchange="{! c.onChange }">
+        <option value="">choose one...</option>
+        <option value="apple">apple</option>
+        <option value="pumpkin">pumpkin</option>
+        <option value="cherry">cherry</option>
+        <option value="blueberry">blueberry</option>
+        <option value="pickle">pickle</option>
+    </lightning:select>
+</aura:component>
