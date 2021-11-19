@@ -1,5 +1,4 @@
 <aura:component controller="AccountController" implements="flexipage:availableForAllPageTypes,force:appHostable">
-    <!-- <aura:registerEvent name="cmpEvent" type="c:EventTest" /> -->
 
     <aura:attribute name="fieldMap" type="Map" />
     <aura:attribute name="acc" type="Account" default="{'sobjectType':'Account', Industry': ''}" />
@@ -18,5 +17,5 @@
             <option text="{!i.value}" value="{!i.key}" selected="{!i.key==v.acc.Industry}" />
         </aura:iteration>
     </lightning:select>
-    <c:tableComp />
+    <!-- <c:tableComp /> -->
 </aura:component>
