@@ -1,20 +1,15 @@
 <aura:component controller="AccountController" implements="flexipage:availableForAllPageTypes,force:appHostable">
-    <aura:registerEvent name="cmpEvent" type="c:EventTest" />
+    <!-- <aura:registerEvent name="cmpEvent" type="c:EventTest" /> -->
 
     <aura:attribute name="fieldMap" type="Map" />
-    <aura:attribute
-        name="acc"
-        type="Account"
-        default="{'sobjectType':'Account', 
-                                                        'Industry': ''}"
-    />
+    <aura:attribute name="acc" type="Account" default="{'sobjectType':'Account', Industry': ''}" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
     <lightning:select
         aura:id="industryPicklist"
         value="{!v.acc.Industry}"
-        onchange="{!c.fireEventTest}"
+        onchange="{!c.handleOnChange}"
         name="industryPicklist"
         label="Industries"
     >
@@ -23,4 +18,5 @@
             <option text="{!i.value}" value="{!i.key}" selected="{!i.key==v.acc.Industry}" />
         </aura:iteration>
     </lightning:select>
+    <c:tableComp />
 </aura:component>
