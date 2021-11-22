@@ -1,19 +1,27 @@
-<aura:component controller="AccountController" implements="flexipage:availableForAllPageTypes">
-
+<aura:component
+    controller="AccountController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global"
+>
     <aura:attribute name="fieldMap" type="Map" />
     <aura:attribute name="acc" type="Account" default="{'sobjectType':'Account', 'Industry': ''}" />
     <aura:attribute name="selectedRowsCount" type="Integer" default="0" />
+    <aura:attribute name="parentValue" type="String" />
 
-    <aura:handler name="sampleComponentEvent" event="c:compEvent" action="{!c.handleComponentEvent}" />    
+    <aura:handler name="sampleComponentEvent" event="c:compEvent" action="{!c.handleComponentEvent}" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
     <h1 class="slds-text-heading_medium">Aura</h1>
     <div class="demo-only demo-only--sizing slds-grid slds-wrap body-color">
-
         <div class="slds-size_1-of-3">
             <div class="slds-box slds-box_x-small slds-var-m-around_x-small">
-                <lightning:select aura:id="industryPicklist" value="{!v.acc.Industry}" onchange="{!c.handleOnChange}"
-                    name="industryPicklist" label="Industries">
+                <lightning:select
+                    aura:id="industryPicklist"
+                    value="{!v.acc.Industry}"
+                    onchange="{!c.sendValue}"
+                    name="industryPicklist"
+                    label="Industries"
+                >
                     <option value="">-None-</option>
                     <aura:iteration items="{!v.fieldMap}" var="i" indexVar="key">
                         <option text="{!i.value}" value="{!i.key}" selected="{!i.key==v.acc.Industry}" />
@@ -24,15 +32,14 @@
 
         <div class="slds-size_2-of-3">
             <div class="slds-box slds-box_x-small slds-var-m-around_x-small">
-                <p>Selected Accounts: {! v.selectedRowsCount } </p>
+                <p>Selected Accounts: {! v.selectedRowsCount }</p>
             </div>
         </div>
 
         <div class="slds-size_2-of-2">
             <div class="slds-box slds-box_x-small slds-var-m-around_x-small">
-                <c:tableComp/>
+                <c:tableComp childValue="{!v.parentValue}" />
             </div>
         </div>
-        
     </div>
-</aura:component>	
+</aura:component>

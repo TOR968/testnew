@@ -13,4 +13,6 @@
         compEvent.setParams({ count: selectedRows.length });
         compEvent.fire();
     }
+    // ,
+    // onRender: function (helper)
 });

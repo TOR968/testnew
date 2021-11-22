@@ -2,16 +2,14 @@
     doInit: function (component, event, helper) {
         helper.getPicklistValues(component, event);
     },
-
-    // eslint-disable-next-line no-unused-vars
-    // handleOnChange: function (component, event, helper) {
-    //     var industry = component.get("v.acc.Industry");
-    //     // helper.getData(component, event);
-    //     // eslint-disable-next-line no-alert
-    //     alert(industry);
-    // },
     handleComponentEvent: function (component, event) {
         var valueFromChild = event.getParam("count");
         component.set("v.selectedRowsCount", valueFromChild);
+    },
+    sendValue: function (component) {
+        var industry = component.get("v.acc.Industry");
+        // eslint-disable-next-line no-console
+        console.log("🚀 ~ file: generalCompController.js ~ line 11 ~ industry", industry);
+        component.set("v.parentValue", industry);
     }
 });

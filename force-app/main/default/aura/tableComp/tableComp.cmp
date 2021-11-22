@@ -1,9 +1,20 @@
-<aura:component controller="AccountController">
+<aura:component
+    controller="AccountController"
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global"
+>
     <aura:attribute name="mydata" type="Object" />
     <aura:attribute name="mycolumns" type="List" />
+    <aura:attribute name="childValue" type="String" />
     <aura:registerEvent name="sampleComponentEvent" type="c:compEvent" />
     <aura:handler name="init" value="{! this }" action="{! c.init }" />
+    <!-- <aura:handler name="change" value="{!v.numItems}" action="{!c.itemsChange}"/> -->
     <div style="height: 300px">
-        <lightning:datatable data="{! v.mydata }" columns="{! v.mycolumns }" keyField="Id" onrowselection="{! c.updateSelectedText }" />
+        <lightning:datatable
+            data="{! v.mydata }"
+            columns="{! v.mycolumns }"
+            keyField="Id"
+            onrowselection="{! c.updateSelectedText }"
+        />
     </div>
 </aura:component>

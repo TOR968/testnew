@@ -7,8 +7,6 @@ public with sharing class AccController {
             WHERE Industry = :industryValue
             WITH SECURITY_ENFORCED
         ];
-        System.debug('acc ' + accounts);
-        System.debug('industryValue ' + industryValue);
         return accounts;
     }
 }
