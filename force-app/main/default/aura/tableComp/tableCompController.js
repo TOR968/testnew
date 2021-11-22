@@ -6,5 +6,11 @@
             { label: "Phone", fieldName: "Phone", type: "phone" }
         ]);
         helper.getData(cmp);
+    },
+    updateSelectedText: function (cmp, event) {
+        var selectedRows = event.getParam("selectedRows");
+        var compEvent = cmp.getEvent("sampleComponentEvent");
+        compEvent.setParams({ count: selectedRows.length });
+        compEvent.fire();
     }
 });
