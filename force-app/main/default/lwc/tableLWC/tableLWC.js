@@ -1,4 +1,4 @@
-import { LightningElement, wire } from "lwc";
+import { LightningElement, wire, track, api } from "lwc";
 import getAccounts from "@salesforce/apex/AccController.getAccounts";
 
 const columns = [
@@ -7,9 +7,34 @@ const columns = [
     { label: "Phone", fieldName: "Phone", type: "phone" }
 ];
 export default class ApexDatatableExample extends LightningElement {
-    error;
-    columns = columns;
+    @track data = [];
+    @track industryValue;
+    @track columns = columns;
+    @track tableLoadingState = true;
 
-    @wire(getAccounts)
-    accounts;
+    @wire(getAccounts, { industryValue: "$handleValue" })
+    accounts({ error, data }) {
+        if (data) {
+            this.data = data;
+            this.error = undefined;
+        } else if (error) {
+            this.error = error;
+            this.data = undefined;
+        }
+        this.tableLoadingState = false;
+    }
+    handleValue = undefined;
+
+    @api
+    changeIndustry(value) {
+        this.handleValue = value;
+    }
+
+    getSelections(event) {
+        const selectedEvent = new CustomEvent("countselectedrows", {
+            detail: event.detail.selectedRows.length
+        });
+
+        this.dispatchEvent(selectedEvent);
+    }
 }
