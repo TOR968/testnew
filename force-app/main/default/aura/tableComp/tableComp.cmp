@@ -8,7 +8,7 @@
     <aura:attribute name="childValue" type="String" />
     <aura:registerEvent name="sampleComponentEvent" type="c:compEvent" />
     <aura:handler name="init" value="{! this }" action="{! c.init }" />
-    <!-- <aura:handler name="change" value="{!v.numItems}" action="{!c.itemsChange}"/> -->
+    <aura:handler name="change" value="{!v.childValue}" action="{!c.itemsChange}" />
     <div style="height: 300px">
         <lightning:datatable
             data="{! v.mydata }"

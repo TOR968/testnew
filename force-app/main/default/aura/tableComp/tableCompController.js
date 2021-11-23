@@ -12,7 +12,8 @@
         var compEvent = cmp.getEvent("sampleComponentEvent");
         compEvent.setParams({ count: selectedRows.length });
         compEvent.fire();
+    },
+    itemsChange: function (cmp, evt, helper) {
+        helper.getData(cmp);
     }
-    // ,
-    // onRender: function (helper)
 });

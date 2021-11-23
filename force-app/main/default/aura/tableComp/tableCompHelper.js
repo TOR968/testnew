@@ -2,8 +2,6 @@
     getData: function (cmp) {
         var action = cmp.get("c.getAccounts");
         var industry = cmp.get("v.childValue");
-        // eslint-disable-next-line no-console
-        console.log("🚀 ~ file: tableCompHelper.js ~ line 5 ~ industry", industry);
         action.setParams({ industryValue: industry });
         action.setCallback(
             this,
