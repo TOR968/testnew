@@ -1,21 +1,29 @@
 <template>
-    <h1 class="slds-text-heading_medium header">LWC</h1>
-    <div class="demo-only demo-only--sizing slds-grid slds-wrap body-color">
-        <div class="slds-size_1-of-3">
-            <div class="slds-box slds-box_x-small slds-var-m-around_x-small">
-                <lightning-combobox name="Industry" label="Industries" value={value} placeholder="-Select-"
-                    options={pickListvalues} onchange={handleChange}>
-                </lightning-combobox>
+    <div class="slds-box slds-theme_default">
+        <h1 class="slds-text-heading_medium">LWC</h1>
+        <div class="demo-only demo-only--sizing slds-grid slds-wrap body-color">
+            <div class="slds-size_1-of-3">
+                <div class="slds-box slds-box_x-small slds-var-m-around_x-small">
+                    <lightning-combobox
+                        name="Industry"
+                        label="Industries"
+                        value={value}
+                        placeholder="-Select-"
+                        options={pickListvalues}
+                        onchange={handleChange}
+                    >
+                    </lightning-combobox>
+                </div>
             </div>
-        </div>
-        <div class="slds-size_2-of-3">
-            <div class="slds-box slds-box_x-small slds-var-m-around_x-small">
-                <p>Selected Accounts: {count} </p>
+            <div class="slds-size_2-of-3">
+                <div class="slds-box slds-box_x-small slds-var-m-around_x-small">
+                    <p>Selected Accounts: {count}</p>
+                </div>
             </div>
-        </div>
-        <div class="slds-size_2-of-2">
-            <div class="slds-box slds-box_x-small slds-var-m-around_x-small">
-                <c-table-l-w-c oncountselectedrows={hanldeCount}></c-table-l-w-c>
+            <div class="slds-size_2-of-2">
+                <div class="slds-box slds-box_x-small slds-var-m-around_x-small">
+                    <c-table-l-w-c oncountselectedrows={hanldeCount}></c-table-l-w-c>
+                </div>
             </div>
         </div>
     </div>
